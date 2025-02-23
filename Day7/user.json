@@ -1,0 +1,45 @@
+[
+
+    {
+        "id" : "1",
+        "name" : "waiferkolar",
+        "creator" : "0",
+        "email" : "waiferkolar@gmail.com",
+        "password" : "123123"
+    },
+    {
+        "id" : "2",
+        "name" : "Mg Mg",
+        "creator" : "1",
+        "email" : "mgmg@gmail.com",
+        "password" : "123123"
+    },
+    {
+        "id" : "3",
+        "name" : "Tun Tun",
+        "creator" : "1",
+        "email" : "tuntun@gmail.com",
+        "password" : "123123"
+    },
+    {
+        "id" : "4",
+        "name" : "Su Su",
+        "creator" : "1",
+        "email" : "susu@gmail.com",
+        "password" : "123123"
+    },
+    {
+        "id" : "5",
+        "name" : "micheal",
+        "creator" : "2",
+        "email" : "micheal@gmail.com",
+        "password" : "123123"
+    },
+    {
+        "id" : "6",
+        "name" : "Jonatan",
+        "creator" : "2",
+        "email" : "jonatan@gmail.com",
+        "password" : "123123"
+    }
+]
