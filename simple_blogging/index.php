@@ -1,0 +1,39 @@
+    <?php include_once "views/top.php"; ?>
+    <?php include_once "views/nav.php"; ?>
+    <?php include_once "views/header.php"; 
+    include_once "sysgem/postgenerator.php";?>
+
+    <div class="container my-3">
+      <div class="row">
+        <?php include_once "views/sidebar.php"; ?>
+        <section class="col-md-9">
+      <div class="row">
+            <?php
+              $result = "";
+              if(checkSession("username")) {
+                $result = getAllPost(2);
+
+              }else {
+                $result = getAllPost(1);
+              }
+              foreach($result as $post) {
+                $pid = $post["id"];
+                echo '<div class="col-md-6 mb-3">
+                        <dic class="card">
+                            <div class="card-block">
+                              <h1>'.$post["title"].'</h1>
+                                <p>'.substr($post["content"],0,100).'</p>
+                                <a href="postdetail.php?pid='.$pid.'" class="btn btn-info btn-sm float-right">Detail</a>
+                            </div>
+                        </div>
+                    </div>';
+              }
+            ?>
+        </div>
+      </section>
+      </div>
+        
+    </div>
+
+    <?php include_once "views/footer.php" ?>
+    <?php include_once "views/base.php" ?>
