@@ -1,6 +1,3 @@
-<?php 
-session_start();
-include_once "sysgem/mysession.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,5 +11,13 @@ include_once "sysgem/mysession.php"; ?>
 
 <body>
 </body>
+
+<?php 
+session_start();
+include_once "sysgem/mysession.php"; 
+include_once "sysgem/postgenerator.php";
+include_once "sysgem/membership.php";
+include_once "views/nav.php";
+?>
 
 </html>

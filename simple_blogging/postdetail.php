@@ -1,7 +1,6 @@
 <?php include_once "views/top.php"; ?>
-    <?php include_once "views/nav.php"; ?>
     <?php include_once "views/header.php"; 
-    include_once "sysgem/postgenerator.php";
+    
     if(isset($_GET['pid'])){
         $pid = $_GET("pid");    
     }

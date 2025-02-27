@@ -1,5 +1,4 @@
 <?php include_once "views/top.php";
-include_once "views/nav.php";
 include_once "views/header.php";
 include_once "sysgem/postgenerator.php";
 if (checkSession("username")) {
@@ -14,11 +13,12 @@ if(isset($_POST['submit'])) {
     $posttile = $_POST["postype"];
     $postwriter = $_POST["postwriter"];
     $postcontent = $_POST["postcontent"];
+    $subject = $_POST["subject"];
 
     $imglink = mt_rand(time(), time()) . "_" . $_FILES["file"]["name"] . mt_rand(time(), time());
     move_uploaded_file($_FILES['file']['tmp_name'],'assets/uploads/' . $imglink);
     
-    $bol = insertPost($posttile,$posttile,$postwriter,$postcontent,$imglink);
+    $bol = insertPost($posttile,$posttile,$postwriter,$postcontent,$imglink,$subject);
     
     if($bol){
         echo "<div class=,alert alert-warning alert-dismissible fade show' role='alert'>
@@ -46,9 +46,22 @@ if(isset($_POST['submit'])) {
                     <input type="text" class="form-control english" id="posttitle" name="posttitle">
                 </div>
                 <div class="form-group">
-                    <label for="posttype" class="english">Post Title</label>
+                    <label for="posttype" class="english">Post Type</label>
                     <select class="form-control" id="posttype" name="posttype">
                         <option value="1">Free Post</option>
+                        <option value="2">Paid Post</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject" class="english">Subject</label>
+                    <select class="form-control" id="subject" name="subject">
+                        <?php
+                          $subjects = getAllSubject();
+                          foreach($subjects as $subject) {
+                            echo "<option value='".$subject["id"]."'>".$subject["name"]."</option>";
+                          }
+                        ?>
+                        
                         <option value="2">Paid Post</option>
                     </select>
                 </div>

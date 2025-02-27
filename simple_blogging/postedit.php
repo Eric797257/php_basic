@@ -1,7 +1,6 @@
 <?php include_once "views/top.php";
-include_once "views/nav.php";
 include_once "views/header.php";
-include_once "sysgem/postgenerator.php";
+
 $ppid = 0;
 if(isset($_GET["pid"])) {
     $pid = $_GET["pid"];
@@ -28,10 +27,11 @@ if(isset($_POST["submit"])) {
     $posttype = $_POST["posttype"];
     $postwriter = $_POST["postwriter"];
     $postcontent = $_POST["postcontent"];
+    $subject = $_POST["subject"];
     $imglink = $imgname;
     $pid = $_GET["pid"];
 
-    updatePost($title, $posttype, $postwriter, $postcontent, $imglink, $ppid);
+    updatePost($title, $posttype, $postwriter, $postcontent, $imglink, $pid, $subject);
 }
 ?>
 
@@ -46,9 +46,22 @@ if(isset($_POST["submit"])) {
                     <input type="text" class="form-control english" id="posttitle" name="posttitle" value="<?php echo $posts["title"];?>">
                 </div>
                 <div class="form-group">
-                    <label for="posttitle" class="english">Post Title</label>
+                    <label for="posttype" class="english">Post Type</label>
                     <select class="form-control" id="exampleSelect1">
                         <option value="1">Free Post</option>
+                        <option value="2">Paid Post</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject" class="english">Subject</label>
+                    <select class="form-control" id="subject" name="subject">
+                        <?php
+                          $subjects = getAllSubject();
+                          foreach($subjects as $subject) {
+                            echo "<option value='".$subject["id"]."'>".$subject["name"]."</option>";
+                          }
+                        ?>
+                        
                         <option value="2">Paid Post</option>
                     </select>
                 </div>

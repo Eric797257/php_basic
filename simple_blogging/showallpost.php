@@ -1,7 +1,7 @@
 <?php include_once "views/top.php";
-include_once "views/nav.php";
+
 include_once "views/header.php";
-include_once "sysgem/postgenerator.php";
+
 if (checkSession("username")) {
     if (getSession("username") != "waiferkolar") {
         header("Location:index.php");
@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
     $imglink = mt_rand(time(), time()) . "_" . $_FILES["file"]["name"] . mt_rand(time(), time());
     move_uploaded_file($_FILES['file']['tmp_name'],'assets/uploads/' . $imglink);
     
-    $bol = insertPost($posttile,$posttile,$postwriter,$postcontent,$imglink);
+    $bol = insertPost($posttitle,$posttype,$postwriter,$postcontent,$imglink,$subject);
     
     if($bol){
         echo "<div class=,alert alert-warning alert-dismissible fade show' role='alert'>

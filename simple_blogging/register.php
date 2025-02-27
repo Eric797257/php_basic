@@ -1,6 +1,4 @@
-<?php include_once "views/top.php"; ?>
-<?php include_once "views/nav.php"; 
-require_once "sysgem/membership.php";
+<?php include_once "views/top.php"; 
 
 
 if(isset($_POST['submit'])) {
@@ -62,7 +60,7 @@ if(isset($_POST['submit'])) {
                 <input type="password" class="form-control english rounded-0" name="password" id="password">
             </div>
             <p></p>
-            <button class="btn btn-secondary" type="submit" name="submit" value="submit">Login</button>
+            <button class="btn btn-secondary" type="submit" name="submit" value="submit">Register</button>
         </form>
     </div>
 </div>

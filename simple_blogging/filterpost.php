@@ -1,8 +1,5 @@
 <?php include_once "views/top.php"; ?>
-    <?php include_once "views/nav.php"; ?>
-    <?php 
-    include_once "sysgem/postgenerator.php";
-    ?>
+    
 
     <div class="container my-3">
       <div class="row">
@@ -22,7 +19,7 @@
                 echo '<div class="col-md-6 mb-3">
                         <dic class="card">
                             <div class="card-block">
-                              <h1>'.$post["title"].'</h1>
+                              <h1>'.substr($post["title"],0, 30).'</h1>
                                 <p>'.substr($post["content"],0,100).'</p>
                                 <a href="postdetail.php?pid='.$pid.'" class="btn btn-info btn-sm float-right">Detail</a>
                             </div>
